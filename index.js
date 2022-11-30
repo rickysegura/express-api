@@ -9,11 +9,9 @@ const express = require("express");
 const mongoose = require("mongoose")
 
 const app = express();
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.raw({ type: "application/vnd.custom-type" }));
-app.use(express.text({ type: "text/html" }));
 
 // Connect to database
 mongoose.connect("mongodb+srv://rickysegura:1qaz2wsxXSW2ZAQ1@nodetuts.kwaygg4.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser:true})
@@ -21,9 +19,18 @@ const db = mongoose.connection
 db.on("error", (error) => console.error(error))
 db.once("open", () => console.log("Connected to Database"))
 
+/*
+app.use(express.raw({ type: "application/vnd.custom-type" }));
+app.use(express.text({ type: "text/html" }));
+
 app.get("/", async (req, res) => {
   res.json({ message: "If this changes...it works...." });
 });
+*/
+
+// Init Routes
+const postsRouter = require("./routes/posts")
+app.use("/posts", postsRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
