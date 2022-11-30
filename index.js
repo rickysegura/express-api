@@ -8,6 +8,14 @@
 const express = require("express");
 const mongoose = require("mongoose")
 
+const cors = require("cors")
+
+app.use(
+  cors({
+    origin: "https://yomamma69.w3spaces.com",
+  })
+)
+
 const app = express();
 const port = process.env.PORT || 3000;
 
