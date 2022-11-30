@@ -8,7 +8,7 @@ app.use(express.raw({ type: "application/vnd.custom-type" }));
 app.use(express.text({ type: "text/html" }));
 
 app.get("/", async (req, res) => {
-  res.json({ message: "Testing to see if this works." });
+  res.json({ message: "If this changes...it works...." });
 });
 
 app.listen(port, () => {
