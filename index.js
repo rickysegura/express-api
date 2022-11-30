@@ -16,7 +16,7 @@ app.use(express.raw({ type: "application/vnd.custom-type" }));
 app.use(express.text({ type: "text/html" }));
 
 // Connect to database
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser:true})
+mongoose.connect("mongodb+srv://rickysegura:1qaz2wsxXSW2ZAQ1@nodetuts.kwaygg4.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser:true})
 const db = mongoose.connection
 db.on("error", (error) => console.error(error))
 db.once("open", () => console.log("Connected to Database"))
