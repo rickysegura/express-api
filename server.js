@@ -7,17 +7,18 @@
 // Init
 const express = require("express");
 const mongoose = require("mongoose")
+const path = require("path")
+
+const app = express();
+const port = process.env.PORT || 3000
 
 const cors = require("cors")
 
 app.use(
   cors({
-    origin: "https://yomamma69.w3spaces.com",
+    origin: "http://localhost:8080",
   })
 )
-
-const app = express();
-const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -37,6 +38,9 @@ app.get("/", async (req, res) => {
 */
 
 // Init Routes
+// Homepage
+
+// Posts Router
 const postsRouter = require("./routes/posts")
 app.use("/posts", postsRouter)
 
