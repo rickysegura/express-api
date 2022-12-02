@@ -16,7 +16,7 @@ const cors = require("cors")
 
 app.use(
   cors({
-    origin: "https://yomamma69.w3spaces.com/",
+    origin: "*",
   })
 )
 
