@@ -39,6 +39,9 @@ app.get("/", async (req, res) => {
 
 // Init Routes
 // Homepage
+app.get("/", async (req, res) => {
+  res.json({ message: "The API is working." });
+});
 
 // Posts Router
 const postsRouter = require("./routes/posts")
